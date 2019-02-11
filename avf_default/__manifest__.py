@@ -18,7 +18,7 @@
 #
 # -----------------------------------------------------------------------------
 {
-    'name': 'scaffolding',
+    'name': 'avf',
     'version': '11.0.0.0.0',
     'license': 'Other OSI approved licence',
     'category': 'Tools',
