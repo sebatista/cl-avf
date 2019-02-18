@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
 #
-#    Copyright (C) 2019  jeo Software  (http://www.jeosoft.com.ar)
+#    Copyright (C) 2016  jeo Software  (http://www.jeosoft.com.ar)
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -18,32 +19,53 @@
 #
 # -----------------------------------------------------------------------------
 {
-    'name': 'avf',
-    'version': '11.0.0.0.0',
+    'name': 'Iomaq',
+    'version': '9.0.2.1.0',
     'license': 'Other OSI approved licence',
     'category': 'Tools',
-    'summary': 'Customizacion para scaffolding',
+    'summary': 'Customización IOMAQ SA',
     'author': 'jeo Software',
     'depends': [
-        'sale_management',
-        'account_invoicing',
-        'purchase',
+        'avoid_selling_no_stock',   # evitar que se venda con stock negativo
+        'support_branding_jeosoft',
 
-        # para la localizacion argentina
-        'l10n_ar_base',  # esto se instala solo
-        'l10n_ar_account',  # esto se instala solo
-        'l10n_ar_afipws_fe',  # Factura Electrónica Argentina
-        'l10n_ar_aeroo_einvoice',  # impresion de factura electronica aeroo
-        'l10n_ar_account_vat_ledger_citi',
-        'account_debt_management',
-        'l10n_ar_aeroo_payment_group',
+        # aplicaciones instaladas
+        'sale', 'l10n_ar_aeroo_sale',  # ventas
+        'purchase', 'l10n_ar_aeroo_purchase',  # compras
+        'account_accountant',  # permisos para contabilidad
+        'l10n_ar_aeroo_stock',
 
-        # utilitarios
-        'auto_backup',  # poner el backup en: /var/odoo/backups/
-        'backend_theme',
-        'due_payments_argentina_fix'
+        'product_currency_fix',  # fix para que ande con inventario permanente
+        'stock_picking_auto',  # Automatic picking when Invoice is validated.
+        'product_unique',
+        'account_reconciliation_menu',  # agrega boton en partner
+        'product_multi_barcode',
+        'base_state_active',  # Deactivate US States
+        'account_fix',  # Account Fixes
+        'account_invoice_tax_wizard',  # add manual taxes on invoices
+        'account_invoice_global_discount',  # descuentos en facturas de compra
+        'web_export_view',  # exportar vistas en excel
+        'account_clean_cancelled_invoice_number',  # borrar fac canceladas
+        'price_security',   # Quien ve el precio de costo
+        'base_currency_inverse_rate',  # Ver TC al derecho
+        'l10n_ar_currency_update',  # Actualizar tipo de cambio
+        'sale_order_validity',  # imprimir validez del presupuesto
+        'kpis_panel',  # muestra tablero de control
+        'account_cash_report',  # reporte de cajas
+        'product_prices_update',  # incrementos de precios porcentuales
+        'product_autoload',  # replicacion bulonfer
+        'simple_meli_publishing',  # publicar precios de mercadolibre
+        'simple_meshops_publishing',
+        'bi_sales_iomaq',  # custom bi report for sales
+        'sale_global_discount',  # setea todos los descuentos de la SO
+        'document_page',  # documentacion y ayuda
+        'product_upload',  # cargar productos desde planilla excel
     ],
+
     'data': [
+        'views/product_view.xml',
+        'views/custom_reports.xml',  # por si hay que hacer custom reports
+        'views/stock_view.xml',
     ],
     'test': [
     ],
@@ -54,29 +76,15 @@
 
     'port': '8069',
     'repos': [
-        {'usr': 'sebatista', 'repo': 'cl-avf', 'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'rafi16jan-backend-theme',
-         'branch': '11.0'},
+        {'usr': 'jobiols', 'repo': 'cl-iomaq', 'branch': '9.0'},
+        {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '9.0'},
+        {'usr': 'Vauxoo', 'repo': 'addons-vauxoo', 'branch': '9.0'},
 
-        {'usr': 'jobiols', 'repo': 'adhoc-odoo-argentina', 'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'adhoc-argentina-sale', 'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'adhoc-account-financial-tools',
-         'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'adhoc-account-payment', 'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'adhoc-miscellaneous', 'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'adhoc-argentina-reporting',
-         'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'adhoc-reporting-engine', 'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'adhoc-aeroo_reports', 'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'oca-partner-contact', 'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'oca-web', 'branch': '11.0'},
-        {'usr': 'jobiols', 'repo': 'oca-server-tools', 'branch': '11.0'},
     ],
     'docker': [
-        {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-jeo', 'ver': '11.0'},
-        {'name': 'postgres', 'usr': 'postgres', 'ver': '11.1-alpine'},
-        {'name': 'nginx', 'usr': 'nginx', 'ver': 'latest'},
-        {'name': 'aeroo', 'usr': 'adhoc', 'img': 'aeroo-docs'},
+        {'name': 'aeroo', 'usr': 'jobiols', 'img': 'aeroo-docs'},
+        {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-jeo', 'ver': '9.0'},
+        {'name': 'postgres', 'usr': 'postgres', 'ver': '9.5'},
+        {'name': 'nginx', 'usr': 'nginx', 'ver': 'latest'}
     ]
 }
