@@ -19,11 +19,11 @@
 #
 # -----------------------------------------------------------------------------
 {
-    'name': 'Iomaq',
+    'name': 'avf',
     'version': '9.0.2.1.0',
     'license': 'Other OSI approved licence',
     'category': 'Tools',
-    'summary': 'Customización IOMAQ SA',
+    'summary': 'Customización avf',
     'author': 'jeo Software',
     'depends': [
         'avoid_selling_no_stock',   # evitar que se venda con stock negativo
@@ -76,7 +76,7 @@
 
     'port': '8069',
     'repos': [
-        {'usr': 'jobiols', 'repo': 'cl-iomaq', 'branch': '9.0'},
+        {'usr': 'jobiols', 'repo': 'cl-avf', 'branch': '9.0'},
         {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '9.0'},
         {'usr': 'Vauxoo', 'repo': 'addons-vauxoo', 'branch': '9.0'},
 
