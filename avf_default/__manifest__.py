@@ -79,6 +79,7 @@
         {'usr': 'sebatista', 'repo': 'cl-avf', 'branch': '9.0'},
         {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '9.0'},
         {'usr': 'Vauxoo', 'repo': 'addons-vauxoo', 'branch': '9.0'},
+        {'usr': 'jobiols', 'repo': 'adhoc-aeroo_reports', 'branch': '9.0'},
 
     ],
     'docker': [
