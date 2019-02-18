@@ -76,7 +76,7 @@
 
     'port': '8069',
     'repos': [
-        {'usr': 'jobiols', 'repo': 'cl-avf', 'branch': '9.0'},
+        {'usr': 'sebatista', 'repo': 'cl-avf', 'branch': '9.0'},
         {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '9.0'},
         {'usr': 'Vauxoo', 'repo': 'addons-vauxoo', 'branch': '9.0'},
 
